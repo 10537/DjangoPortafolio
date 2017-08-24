@@ -1,0 +1,39 @@
+<html>
+{% include 'partials/header.html' %}
+<body>
+    <header>
+        <h1 class="text-center">TodoList</h1>
+        <hr>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                {% include 'partials/navbar.html' %}
+            </div>
+        </div>
+    </div>
+    <table class="table table-hover table-responsive table-condensed">
+        <thead>
+            <tr>
+                <th>Created at</th>
+                <th>Title</th>
+                <th>State</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for Todo in Todos %}
+                {% if Todo.state == 'todo' %}
+                    <tr class="inactive">
+                {% else %}
+                    <tr class="active">
+                {% endif %}
+                    <th>{{Todo.created_at}}</th>
+                    <th><a href="details/{{Todo.id}}">{{ Todo.title }}</a></th>
+                    <th>{{ Todo.state }}</th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+{% include 'partials/footer.html' %}
+</html>

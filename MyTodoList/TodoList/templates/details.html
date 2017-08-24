@@ -1,0 +1,28 @@
+<html>
+{% include 'partials/header.html' %}
+<body>
+    <header>
+        <h1 class="bg-primary">{{Todo.title}}</h1>
+        <hr>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                {% include 'partials/navbar.html' %}
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <blockquote>
+                    <p>{{Todo.text}}</p>
+                    <footer><cite title="Created at">{{Todo.created_at}}</cite></footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% include 'partials/footer.html' %}
+</html>

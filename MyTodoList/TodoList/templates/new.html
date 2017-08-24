@@ -1,0 +1,62 @@
+<html>
+{% include 'partials/header.html' %}
+<body>
+    <header>
+        <h1 class="text-center">TodoList</h1>
+        <hr>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+            <form class="form-horizontal" action="{% url 'new' %}" method="post">
+                {% csrf_token %}
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>New Todo</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="title">Title</label>
+                  <div class="col-md-4">
+                  <input id="title" name="title" type="text" placeholder="Example Todo"
+                         class="form-control input-md" required="1">
+                  </div>
+                </div>
+                    <!-- Textarea -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="text">Description</label>
+                  <div class="col-md-4">
+                    <textarea class="form-control" id="text" name="text" required="1"></textarea>
+                  </div>
+                </div>
+                                  <!-- Select Basic -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="state">State</label>
+                  <div class="col-md-4">
+                    <select id="state" name="state" class="form-control">
+                      <option value="todo">Todo</option>
+                      <option value="doing">Doing</option>
+                      <option value="done">Done</option>
+                    </select>
+                  </div>
+                </div>
+
+                    <!-- Button -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="submit"></label>
+                  <div class="col-md-4">
+                    <button id="submit" name="submit" type="submit"
+                            class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+
+                </fieldset>
+            </form>
+
+            </div>
+        </div>
+    </div>
+</body>
+{% include 'partials/footer.html' %}
+</html>

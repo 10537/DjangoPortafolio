@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block cssfiles %}
+    {% endblock %}
+    {% block jsfiles %}
+    {% endblock %}
+    <meta charset="UTF-8">
+    <title>{% block title %} Document() {% endblock %}</title>
+</head>
+<body>
+    {% block header%}
+    <h4>Base Block Header</h4>
+    {% endblock %}
+
+    {% block content%}
+    <h4>Base Block Content</h4>
+    {% endblock %}
+
+    {% block footer%}
+    <h4>Base Block Footer</h4>
+    {% endblock %}
+</body>
+</html>

@@ -2,10 +2,7 @@
 {% load static %}
 <html lang="en">
 <head>
-    {% block jsfiles %}
-        <link rel="script" href="https://code.jquery.com/jquery-1.10.2.min.js"></link>
-        <link rel="script" href="{% static 'js/bootstrap.min.js' %}"/>
-    {% endblock %}
+
     {% block cssfiles %}
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
     {% endblock %}
@@ -38,6 +35,33 @@
                   </ul>
                 </li>
               </ul>
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Adoptions<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">New Adoption</a></li>
+                    <li><a href="#">View List</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Medical<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">New Medical Register</a></li>
+                    <li><a href="#">View List</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Options<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">My Profile</a></li>
+                    <li><a href="#">Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
             </div>
           </div>
         </nav>
@@ -54,5 +78,11 @@
     {% block footer%}
     <h4>Base Block Footer</h4>
     {% endblock %}
+
+    {% block jsfiles %}
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    {% endblock %}
+
 </body>
 </html>

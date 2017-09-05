@@ -18,9 +18,9 @@ class PetsForm(forms.ModelForm):
         }
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'sex': forms.TextInput(attrs={'class': 'form-control'}),
+            'sex': forms.Select(attrs={'class': 'form-control'}),
             'birthday': forms.TextInput(attrs={'class': 'form-control'}),
             'age': forms.TextInput(attrs={'class': 'form-control'}),
             'owner': forms.Select(attrs={'class': 'form-control'}),
-            'medical_info': forms.Select(attrs={'class':'form-control'}),
+            'medical_info': forms.Select(attrs={'class': 'form-control'}),
         }

@@ -14,4 +14,4 @@ class AdoptionPersonInfo(models.Model):
                            help_text="Person's sex", default='male', max_length=6)
 
     def __str__(self):
-        return self.name
+        return '{} {}'.format(self.name, self.surname)

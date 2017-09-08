@@ -15,3 +15,9 @@ class AdoptionPersonInfo(models.Model):
 
     def __str__(self):
         return '{} {}'.format(self.name, self.surname)
+
+
+class AdoptionRequest(models.Model):
+    adopter = models.ForeignKey(AdoptionPersonInfo, null=True, blank=True)
+    pets_number = models.IntegerField()
+    reason = models.TextField()

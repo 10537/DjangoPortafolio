@@ -5,11 +5,12 @@ from apps.pets.models import Pets
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView
 from django.core.urlresolvers import reverse_lazy
 
-# Create your views here.
+# Views based on functions.
+
+
 def pets_main(request):
     return render(request, 'pets/index.html')
 
-# ~ Views as Functions
 
 def pets_form(request):
     if request.method == 'POST':
@@ -49,7 +50,13 @@ def pets_unlink(request, reg_id):
         return HttpResponseRedirect('/pets/list')
     return render(request, 'pets/petsUnlink.html', {'Pet': pet})
 
-# ~ Views as Class
+# Views based on Class
+
+
+class PetsList(ListView):
+    model = Pets
+    template_name = 'pets/petsList.html'
+
 
 class PetsNew(CreateView):
     model = Pets

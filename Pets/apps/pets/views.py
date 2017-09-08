@@ -2,11 +2,14 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from apps.pets.forms import PetsForm
 from apps.pets.models import Pets
+from django.views.generic import ListView, CreateView, DeleteView, UpdateView
+from django.core.urlresolvers import reverse_lazy
 
 # Create your views here.
 def pets_main(request):
     return render(request, 'pets/index.html')
 
+# ~ Views as Functions
 
 def pets_form(request):
     if request.method == 'POST':
@@ -45,3 +48,24 @@ def pets_unlink(request, reg_id):
         pet.delete()
         return HttpResponseRedirect('/pets/list')
     return render(request, 'pets/petsUnlink.html', {'Pet': pet})
+
+# ~ Views as Class
+
+class PetsNew(CreateView):
+    model = Pets
+    form_class = PetsForm
+    template_name = 'pets/petsForm.html'
+    success_url = reverse_lazy('PetsList')
+
+
+class PetsUpdate(UpdateView):
+    model = Pets
+    form_class = PetsForm
+    template_name = 'pets/petsForm.html'
+    success_url = reverse_lazy('PetsList')
+
+
+class PetsUnlink(DeleteView):
+    model = Pets
+    template_name = 'pets/petsUnlink.html'
+    success_url = reverse_lazy('PetsList')

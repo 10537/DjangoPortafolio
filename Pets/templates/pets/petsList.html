@@ -13,8 +13,8 @@
             </tr>
         </thead>
         <tbody>
-            {% if Pets %}
-                {% for pet in Pets %}
+            {% if object_list %}
+                {% for pet in object_list %}
                     <tr>
                         <td>{{ pet.id }}</td>
                         <td>{{ pet.name }}</td>

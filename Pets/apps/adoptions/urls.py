@@ -14,10 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from apps.adoptions.views import adoptions_main, AdoptionRequestList, AdoptionRequestCreate
+from apps.adoptions.views import adoptions_main, AdoptionRequestList, AdoptionRequestCreate, AdoptionRequestUpdate,\
+    UnlinkAdoptionRequest
 
 urlpatterns = [
     url(r'^$', adoptions_main),
     url(r'^list$', AdoptionRequestList.as_view(), name='AdoptionRequestList'),
     url(r'^new$', AdoptionRequestCreate.as_view(), name='AdoptionRequestNew'),
+    url(r'^edit/(?P<pk>\d+)$', AdoptionRequestUpdate.as_view(), name='AdoptionRequestEdit'),
+    url(r'^unlink/(?P<pk>\d+)$', UnlinkAdoptionRequest.as_view(), name='AdoptionRequestUnlink'),
 ]

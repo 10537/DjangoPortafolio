@@ -22,8 +22,8 @@
                         <td>{{ request.reason }}</td>
                         <td>{{ request.adopter.phone }}</td>
                         <td>
-                            <a class="btn btn-primary" href="#">Edit</a>
-                            <a class="btn btn-danger" href="#">Delete</a>
+                            <a class="btn btn-primary" href="{% url 'AdoptionRequestEdit' request.id %}">Edit</a>
+                            <a class="btn btn-danger" href="{% url 'AdoptionRequestUnlink' request.id %}">Delete</a>
                         </td>
                     </tr>
                 {% endfor %}
